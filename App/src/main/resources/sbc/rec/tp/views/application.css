@@ -1,0 +1,29 @@
+#app-window {
+	-fx-background-color: #FFFFFF;
+	-fx-background-radius: 8 8 8 8;
+	-fx-border-radius: 8 8 8 8;
+}
+
+#upper-pane {
+	-fx-background-color: #DEDEDE;
+	-fx-background-radius: 8 8 0 0;
+	-fx-border-radius: 8 8 0 0;
+}
+
+#closeBtn{
+	-fx-cursor: default ;
+}
+
+#closeBtn:hover{
+	-fx-background-color: #FF0000;
+	-fx-background-radius: 0 8 0 0;
+	-fx-border-radius: 0 8 0 0;
+}
+
+#reduceBtn{
+	-fx-cursor: default  ;
+}
+
+#reduceBtn:hover{
+	-fx-background-color: #C2C2C2;
+}

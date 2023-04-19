@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="app-window" fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="893.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sbc.rec.tp.controllers.MainFrameController">
+   <children>
+      <HBox id="upper-pane" prefHeight="34.0" prefWidth="893.0">
+         <children>
+            <HBox fx:id="titlePane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="34.0" prefWidth="798.0">
+               <children>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/menu%20(1).png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" top="6.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Text fill="#0b1215" strokeType="OUTSIDE" strokeWidth="0.0" text="SBC Cuisine" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="8.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="4.0" />
+               </padding>
+            </HBox>
+            <Pane id="reduceBtn" fx:id="minimizeBtn" prefHeight="26.0" prefWidth="50.0">
+               <children>
+                  <ImageView fitHeight="13.0" fitWidth="13.0" layoutX="16.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/reduce.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Pane>
+            <Pane id="closeBtn" fx:id="closeBtn" prefHeight="26.0" prefWidth="50.0">
+               <children>
+                  <ImageView fitHeight="12.0" fitWidth="11.0" layoutX="19.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/close.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
