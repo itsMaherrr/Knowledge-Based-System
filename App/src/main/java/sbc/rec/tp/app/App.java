@@ -9,7 +9,6 @@ public class App {
 
 	public static void main(String[] args) {
     	new UIController().run();
-    	System.out.println("tramtak");
     }
 
 }
