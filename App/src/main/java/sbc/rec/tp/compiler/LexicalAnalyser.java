@@ -6,6 +6,8 @@ public class LexicalAnalyser {
 	
 	private String text;
 	
+	public LexicalAnalyser() {}
+	
 	public LexicalAnalyser(String text) {
 		this.setText(text);
 	}
@@ -22,6 +24,7 @@ public class LexicalAnalyser {
 		// Initializing tokens array 
 		ArrayList<Token> tokens = new ArrayList<Token>();
 		
+		text = text + " ";
 		int textLength = text.length();
 		boolean lexicalError = false;
 		
@@ -41,58 +44,42 @@ public class LexicalAnalyser {
 				char currentCharacter = text.charAt(i);
 				
 				switch (currentState) {
-					case 0: {
+					case 0 -> {
 						switch (currentCharacter) {
-							case ' ': {
+							case ' ' -> {
 								beginningIndex++;	// blank character is not the beginning of a token
 								}
-							case '(': {currentState = 10;}
-							case ')': {currentState = 10;}
-							case ':': {currentState = 20;}
-							case ',': {currentState = 20;}
-							case '.': {currentState = 20;}
-							case ';': {currentState = 20;}
-							case '-': {currentState = 29;}
-							default: {
+							case '(', ')' -> currentState = 10;
+							case ':', ',', '.', ';' -> currentState = 20;
+							case '-'-> currentState = 29;
+							default -> {
 								if (isAlphabetic(currentCharacter)) currentState = 39;
 								else if (isDigit(currentCharacter)) currentState = 49;
 								else currentState = -1;
 							}
 						}
 					}
-					case 29:{
+					case 29 -> {
 						switch (currentCharacter) {
-							case '>': {currentState = 30;}
-							default : {currentState = -1;}
+							case '>'-> currentState = 30;
+							default -> currentState = -1;
 							
 						}
 					}
-					case 39:{
+					case 39 -> {
 						switch (currentCharacter) {
-							case '_': {currentState = 39;}
-							case ' ': {currentState = 40;}
-							case ',': {currentState = 40;}
-							case '.': {currentState = 40;}
-							case ';': {currentState = 40;}
-							case ':': {currentState = 40;}
-							case ')': {currentState = 40;}
-							case '(': {currentState = 40;}
-							default: {
+							case '_'-> currentState = 39;
+							case ' ', ',', '.', ':', ';', ')', '(' -> currentState = 40;
+							default -> {
 								if (isAlphabetic(currentCharacter)) currentState = 39;
 								else currentState = -1;
 							}
 						}
 					}
-					case 49:{
+					case 49 -> {
 						switch (currentCharacter) {
-							case ' ': {currentState = 50;}
-							case ',': {currentState = 50;}
-							case '.': {currentState = 50;}
-							case ';': {currentState = 50;}
-							case ':': {currentState = 50;}
-							case ')': {currentState = 50;}
-							case '(': {currentState = 50;}
-							default: {
+							case ' ', ',', '.', ';', ':', ')', '(' -> currentState = 50;
+							default -> {
 								if (isDigit(currentCharacter)) currentState = 49;
 								else currentState = -1;
 							}
@@ -103,7 +90,7 @@ public class LexicalAnalyser {
 				i++;
 				lexicalError = currentState == -1;
 				finalState = currentState == 10 || currentState == 20 || currentState == 30 || currentState == 40 || currentState == 50;
-				
+								
 			}
 			
 			// Adding found token to tokens array
@@ -112,26 +99,18 @@ public class LexicalAnalyser {
 				TokenType tokenType;
 				
 				switch (currentState) {
-					case 10:{
-						tokenType = TokenType.PARANTHESIS;
-					}
-					case 20:{
-						tokenType = TokenType.PONCTUATION;
-					}
-					case 30:{
-						tokenType = TokenType.ARROW;
-					}
-					case 40:{
+					case 10 -> tokenType = TokenType.PARANTHESIS;
+					case 20 -> tokenType = TokenType.PONCTUATION;
+					case 30 -> tokenType = TokenType.ARROW;
+					case 40 -> {
 						i--;
 						tokenType = TokenType.IDENTIFIER;
 					}
-					case 50:{
+					case 50 -> {
 						i--;
 						tokenType = TokenType.DIGIT;
 					}
-					default:{
-						tokenType = null;	// technically, this case shouldn't be reached
-					}
+					default -> tokenType = null;	// technically, this case shouldn't be reached
 				}
 				
 				tokenValue = text.subSequence(beginningIndex, i).toString();

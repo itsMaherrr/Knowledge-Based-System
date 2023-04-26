@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane id="app-window" fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="893.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sbc.rec.tp.controllers.MainFrameController">
    <children>
@@ -63,5 +66,12 @@
             </Pane>
          </children>
       </HBox>
+      <ScrollPane layoutX="81.0" layoutY="62.0" prefHeight="423.0" prefWidth="730.0">
+         <content>
+            <VBox fx:id="conversationTab" prefHeight="420.0" prefWidth="728.0" />
+         </content>
+      </ScrollPane>
+      <TextField fx:id="questionField" layoutX="188.0" layoutY="500.0" prefHeight="32.0" prefWidth="461.0" />
+      <Button fx:id="sendButton" layoutX="679.0" layoutY="498.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="66.0" text="Send" />
    </children>
 </AnchorPane>
