@@ -20,7 +20,7 @@ public class LexicalAnalyser {
 		this.text = text;
 	}
 	
-	public ArrayList<Token> analyze(String text) throws Exception {
+	public ArrayList<Token> analyze(String text) throws Error {
 		// Initializing tokens array 
 		ArrayList<Token> tokens = new ArrayList<Token>();
 		
@@ -52,6 +52,8 @@ public class LexicalAnalyser {
 							case '(', ')' -> currentState = 10;
 							case ':', ',', '.', ';' -> currentState = 20;
 							case '-'-> currentState = 29;
+							case 'f' -> currentState = 55;
+							case 'r' -> currentState = 64;
 							default -> {
 								if (isAlphabetic(currentCharacter)) currentState = 39;
 								else if (isDigit(currentCharacter)) currentState = 49;
@@ -85,11 +87,131 @@ public class LexicalAnalyser {
 							}
 						}
 					}
+					case 55 -> {
+						switch(currentCharacter) {
+							case 'a' -> currentState = 56;
+							case '_' -> currentState = 39;
+							case ' ', ',', '.', ';', ':', ')', '(' -> currentState = 40;
+							default -> {
+								if (isAlphabetic(currentCharacter)) currentState = 39;
+								else currentState = -1;
+							}
+						}
+					}
+					case 56 -> {
+						switch(currentCharacter) {
+							case 'i' -> currentState = 57;
+							case '_' -> currentState = 39;
+							case ' ', ',', '.', ';', ':', ')', '(' -> currentState = 40;
+							default -> {
+								if (isAlphabetic(currentCharacter)) currentState = 39;
+								else currentState = -1;
+							}
+						}
+					}
+					case 57 -> {
+						switch(currentCharacter) {
+							case 't' -> currentState = 58;
+							case '_' -> currentState = 39;
+							case ' ', ',', '.', ';', ':', ')', '(' -> currentState = 40;
+							default -> {
+								if (isAlphabetic(currentCharacter)) currentState = 39;
+								else currentState = -1;
+							}
+							
+						}
+					}
+					case 58 -> {
+						switch(currentCharacter) {
+							case 's' -> currentState = 59;
+							case '_' -> currentState = 39;
+							case ' ', ',', '.', ';', ':', ')', '(' -> currentState = 40;
+							default -> {
+								if (isAlphabetic(currentCharacter)) currentState = 39;
+								else currentState = -1;
+							}
+						}
+					}
+					case 59 -> {
+						switch(currentCharacter) {
+							case '_' -> currentState = 39;
+							case ' ', ',', '.', ';', ':', ')', '(' -> currentState = 60;
+							default -> {
+								if (isAlphabetic(currentCharacter)) currentState = 39;
+								else currentState = -1;
+							}
+						}
+					}
+					case 64 -> {
+						switch(currentCharacter) {
+							case 'e' -> currentState = 65;
+							case '_' -> currentState = 39;
+							case ' ', ',', '.', ';', ':', ')', '(' -> currentState = 40;
+							default -> {
+								if (isAlphabetic(currentCharacter)) currentState = 39;
+								else currentState = -1;
+							}
+						}
+					}
+					case 65 -> {
+						switch(currentCharacter) {
+							case 'g' -> currentState = 66;
+							case '_' -> currentState = 39;
+							case ' ', ',', '.', ';', ':', ')', '(' -> currentState = 40;
+							default -> {
+								if (isAlphabetic(currentCharacter)) currentState = 39;
+								else currentState = -1;
+							}
+						}
+					}
+					case 66 -> {
+						switch(currentCharacter) {
+							case 'l' -> currentState = 67;
+							case '_' -> currentState = 39;
+							case ' ', ',', '.', ';', ':', ')', '(' -> currentState = 40;
+							default -> {
+								if (isAlphabetic(currentCharacter)) currentState = 39;
+								else currentState = -1;
+							}
+						}
+					}
+					case 67 -> {
+						switch(currentCharacter) {
+							case 'e' -> currentState = 68;
+							case '_' -> currentState = 39;
+							case ' ', ',', '.', ';', ':', ')', '(' -> currentState = 40;
+							default -> {
+								if (isAlphabetic(currentCharacter)) currentState = 39;
+								else currentState = -1;
+							}
+						}
+					}
+					case 68 -> {
+						switch(currentCharacter) {
+							case 's' -> currentState = 69;
+							case '_' -> currentState = 39;
+							case ' ', ',', '.', ';', ':', ')', '(' -> currentState = 40;
+							default -> {
+								if (isAlphabetic(currentCharacter)) currentState = 39;
+								else currentState = -1;
+							}
+						}
+					}
+					case 69 -> {
+						switch(currentCharacter) {
+							case '_' -> currentState = 39;
+							case ' ', ',', '.', ';', ':', ')', '(' -> currentState = 60;
+							default -> {
+								if (isAlphabetic(currentCharacter)) currentState = 39;
+								else currentState = -1;
+							}
+						}
+					}
 					
 				}
 				i++;
 				lexicalError = currentState == -1;
-				finalState = currentState == 10 || currentState == 20 || currentState == 30 || currentState == 40 || currentState == 50;
+				finalState = currentState == 0 ? false : currentState % 10 == 0;
 								
 			}
 			
@@ -110,6 +232,10 @@ public class LexicalAnalyser {
 						i--;
 						tokenType = TokenType.DIGIT;
 					}
+					case 60 -> {
+						i--;
+						tokenType = TokenType.KEYWORD;
+					}
 					default -> tokenType = null;	// technically, this case shouldn't be reached
 				}
 				
@@ -126,6 +252,9 @@ public class LexicalAnalyser {
 		if (lexicalError) {
 			throw new Error("Lexical Error Encountered!");
 		}
+		
+		Token endToken = new Token("#", TokenType.END);
+		tokens.add(endToken);
 		
 		return tokens;
 		

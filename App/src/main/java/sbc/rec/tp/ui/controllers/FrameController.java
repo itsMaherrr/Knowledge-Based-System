@@ -1,4 +1,4 @@
-package sbc.rec.tp.controllers;
+package sbc.rec.tp.ui.controllers;
 
 import javafx.fxml.FXML;
 

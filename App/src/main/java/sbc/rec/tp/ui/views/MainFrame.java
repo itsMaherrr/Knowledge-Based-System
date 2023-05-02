@@ -1,11 +1,11 @@
-package sbc.rec.tp.views;
+package sbc.rec.tp.ui.views;
 
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-import sbc.rec.tp.controllers.MainFrameController;
+import sbc.rec.tp.ui.controllers.MainFrameController;
 
 public class MainFrame {
 

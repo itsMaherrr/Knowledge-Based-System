@@ -1,9 +1,10 @@
-package sbc.rec.tp.controllers;
+package sbc.rec.tp.ui.controllers;
 
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sbc.rec.tp.views.MainFrame;
+import sbc.rec.tp.ui.views.MainFrame;
 
 public class UIController extends Application {
 
@@ -14,6 +15,8 @@ public class UIController extends Application {
 		if (UIController.stage == null) {
 			stage.initStyle(StageStyle.TRANSPARENT);
 			stage.setResizable(false);
+			stage.setTitle("Recipes Catalog");
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("/sbc/rec/tp/ui/images/menu.png")));
 			UIController.stage = stage;
 		}
 		return UIController.stage;	

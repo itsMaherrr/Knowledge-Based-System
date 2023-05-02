@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="app-window" fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="893.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sbc.rec.tp.controllers.MainFrameController">
+<AnchorPane id="app-window" fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="893.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sbc.rec.tp.ui.controllers.MainFrameController">
    <children>
       <HBox id="upper-pane" prefHeight="34.0" prefWidth="893.0">
          <children>
@@ -21,13 +21,13 @@
                <children>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/menu%20(1).png" />
+                        <Image url="@../images/menu.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" top="6.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Text fill="#0b1215" strokeType="OUTSIDE" strokeWidth="0.0" text="SBC Cuisine" textAlignment="CENTER">
+                  <Text fill="#0b1215" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipes Catalog" textAlignment="CENTER">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>

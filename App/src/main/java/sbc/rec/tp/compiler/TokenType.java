@@ -5,7 +5,7 @@ public enum TokenType {
 	PONCTUATION,
 	IDENTIFIER,
 	DIGIT,
-	ARROW;
-
-	private String type;
+	KEYWORD,
+	ARROW,
+	END;
 }

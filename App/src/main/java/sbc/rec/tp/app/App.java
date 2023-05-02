@@ -1,6 +1,6 @@
 package sbc.rec.tp.app;
 
-import sbc.rec.tp.controllers.UIController;
+import sbc.rec.tp.ui.controllers.UIController;
 
 /**
  * JavaFX App
