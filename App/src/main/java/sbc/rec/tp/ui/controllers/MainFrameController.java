@@ -9,8 +9,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import sbc.rec.tp.compiler.Grammar;
-import sbc.rec.tp.compiler.LexicalAnalyser;
-import sbc.rec.tp.compiler.SyntacticAnalyser;
+import sbc.rec.tp.compiler.LexicalAnalyzer;
+import sbc.rec.tp.compiler.SyntacticAnalyzer;
 import sbc.rec.tp.compiler.Token;
 
 public class MainFrameController extends FrameController {
@@ -47,7 +47,7 @@ public class MainFrameController extends FrameController {
 	}
 	
 	private void compile(String message) {
-		LexicalAnalyser analyser = new LexicalAnalyser();
+		LexicalAnalyzer analyser = new LexicalAnalyzer();
 		try {
 			ArrayList<Token> tokens = analyser.analyze(message);
 			tokens.forEach(token -> {
@@ -55,7 +55,7 @@ public class MainFrameController extends FrameController {
 			});
 			
 			Grammar firstOrderLogicGrammar = new Grammar();
-			SyntacticAnalyser parser = new SyntacticAnalyser(firstOrderLogicGrammar);
+			SyntacticAnalyzer parser = new SyntacticAnalyzer(firstOrderLogicGrammar);
 			try {
 				if (parser.parse(tokens)) {
 					System.out.println("Syntactically good");

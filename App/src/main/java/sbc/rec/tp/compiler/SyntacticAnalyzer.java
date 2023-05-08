@@ -6,9 +6,9 @@ import static java.util.Map.entry;
 
 import java.util.ArrayList;
 
-public class SyntacticAnalyser {
+public class SyntacticAnalyzer {
 	
-	public SyntacticAnalyser(Grammar grammar) {
+	public SyntacticAnalyzer(Grammar grammar) {
 		this.grammar = grammar;
 	}
 	
@@ -65,7 +65,7 @@ public class SyntacticAnalyser {
 				if ((stackTop.equals("epsilon")) ||
 						(stackTop.equals(currentToken.getValue())) || (stackTop.equals(currentToken.getType().name().toLowerCase()))) {
 					
-					// only pop if it's epsilon
+					// in case of epsilon, the current token remains unchanged
 					if (!stackTop.equals("epsilon")) {
 						currentIndex++;
 						currentToken = tokens.get(currentIndex);
@@ -73,7 +73,6 @@ public class SyntacticAnalyser {
 					derivationStack.pop();
 				}
 				else {
-					System.out.println(stackTop);
 					throw new Error("Syntactic Error Occurred!");
 				}
 			}

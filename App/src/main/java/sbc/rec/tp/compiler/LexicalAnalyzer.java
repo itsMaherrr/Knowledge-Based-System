@@ -2,13 +2,13 @@ package sbc.rec.tp.compiler;
 
 import java.util.ArrayList;
 
-public class LexicalAnalyser {
+public class LexicalAnalyzer {
 	
 	private String text;
 	
-	public LexicalAnalyser() {}
+	public LexicalAnalyzer() {}
 	
-	public LexicalAnalyser(String text) {
+	public LexicalAnalyzer(String text) {
 		this.setText(text);
 	}
 
@@ -52,6 +52,7 @@ public class LexicalAnalyser {
 							case '(', ')' -> currentState = 10;
 							case ':', ',', '.', ';' -> currentState = 20;
 							case '-'-> currentState = 29;
+							case '_' -> currentState = 39;
 							case 'f' -> currentState = 55;
 							case 'r' -> currentState = 64;
 							default -> {
@@ -70,7 +71,7 @@ public class LexicalAnalyser {
 					}
 					case 39 -> {
 						switch (currentCharacter) {
-							case '_'-> currentState = 39;
+							case '_', '\'' -> currentState = 39;
 							case ' ', ',', '.', ':', ';', ')', '(' -> currentState = 40;
 							default -> {
 								if (isAlphabetic(currentCharacter)) currentState = 39;

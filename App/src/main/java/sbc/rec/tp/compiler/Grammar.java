@@ -87,9 +87,9 @@ public class Grammar {
 		// return the rule meeting the value of the token if it's not null, else return the value meeting its type, if both are null, return null
 		return this.parsingTable.get(nonTerminal).get(nextToken.getValue()) != null ?
 				this.parsingTable.get(nonTerminal).get(nextToken.getValue()).split(" ")
-			: (this.parsingTable.get(nonTerminal).get(nextToken.getType().name().toLowerCase()) != null ?
+			: this.parsingTable.get(nonTerminal).get(nextToken.getType().name().toLowerCase()) != null ?
 				this.parsingTable.get(nonTerminal).get(nextToken.getType().name().toLowerCase()).split(" ") : 
-					null);
+					null;
 	}
 
 }
