@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 /**
  * JavaFX App
  */
-public abstract class FrameController {
+public abstract class WindowController {
 
 	@FXML protected Pane closeBtn, minimizeBtn;
 	@FXML protected HBox titlePane;

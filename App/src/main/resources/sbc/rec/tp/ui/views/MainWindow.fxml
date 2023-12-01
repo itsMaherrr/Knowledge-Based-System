@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="app-window" fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="893.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sbc.rec.tp.ui.controllers.MainFrameController">
+<AnchorPane id="app-window" fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1255.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sbc.rec.tp.ui.controllers.MainWindowController">
    <children>
-      <HBox id="upper-pane" prefHeight="34.0" prefWidth="893.0">
+      <HBox id="upper-pane" prefHeight="34.0" prefWidth="1255.0">
          <children>
-            <HBox fx:id="titlePane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="34.0" prefWidth="798.0">
+            <HBox fx:id="titlePane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="34.0" prefWidth="1155.0">
                <children>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -27,7 +24,7 @@
                         <Insets left="5.0" top="6.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Text fill="#0b1215" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipes Catalog" textAlignment="CENTER">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipes Catalog" textAlignment="CENTER">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>
@@ -66,12 +63,9 @@
             </Pane>
          </children>
       </HBox>
-      <ScrollPane layoutX="81.0" layoutY="62.0" prefHeight="423.0" prefWidth="730.0">
-         <content>
-            <VBox fx:id="conversationTab" prefHeight="420.0" prefWidth="728.0" />
-         </content>
-      </ScrollPane>
-      <TextField fx:id="questionField" layoutX="188.0" layoutY="500.0" prefHeight="32.0" prefWidth="461.0" />
-      <Button fx:id="sendButton" layoutX="679.0" layoutY="498.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="66.0" text="Send" />
+      <StackPane id="pane-container" fx:id="sceneContainer" layoutY="34.0" prefHeight="681.0" prefWidth="1255.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
+         <children>
+            <AnchorPane fx:id="scene" prefHeight="200.0" prefWidth="200.0" />
+         </children></StackPane>
    </children>
 </AnchorPane>

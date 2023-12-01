@@ -49,15 +49,17 @@ public class SyntacticAnalyzer {
 	}
 	*/
 	
-	public boolean parse(ArrayList<Token> tokens) throws Error {
+	public ParseTree parse(ArrayList<Token> tokens) throws Error {
 		int currentIndex = 0;
 		Stack <String> derivationStack = new Stack <String>();
+		ParseTree parseTree = new ParseTree("S");
+		ParseTree subTree = parseTree;
+		
 		derivationStack.push("#");
 		derivationStack.push("S");
 		
 		boolean endAnalysis = false;
 		Token currentToken = tokens.get(currentIndex);
-		
 		while (!endAnalysis) {
 			String stackTop = derivationStack.lastElement();
 			// if we have reached a terminal in the top of stack
@@ -67,9 +69,14 @@ public class SyntacticAnalyzer {
 					
 					// in case of epsilon, the current token remains unchanged
 					if (!stackTop.equals("epsilon")) {
+						subTree.appendChild(new ParseTree(currentToken.getValue(), subTree));
 						currentIndex++;
 						currentToken = tokens.get(currentIndex);
 					}
+					else {
+						subTree.setValue("");
+					}
+					subTree = subTree.getNextSibling();
 					derivationStack.pop();
 				}
 				else {
@@ -86,16 +93,26 @@ public class SyntacticAnalyzer {
 					
 					// if there is no applicable rule
 					if (nextRule == null) {
+						System.out.println(stackTop + ", " + currentToken.getValue() + ", " + currentToken.getType().name());
 						throw new Error("Syntactic Error Occurred!");
 					}
 					
 					// push the mirror of the right side of the rule else
 					else {
 						String [] mirroredNextRule = mirrorRule(nextRule);
+						
+						ArrayList<ParseTree> children = new ArrayList<ParseTree>();
+						
 						derivationStack.pop();
+						
 						for (String part : mirroredNextRule) {
 							derivationStack.add(part);
+							children.add(0, new ParseTree(part));
 						}
+						
+						subTree.setChildren(children);
+						
+						subTree = subTree.getChildren().get(0);
 					}
 				}
 				
@@ -114,7 +131,7 @@ public class SyntacticAnalyzer {
 		}
 		
 		// if no exception has been thrown
-		return true;
+		return parseTree;
 		
 	}
 

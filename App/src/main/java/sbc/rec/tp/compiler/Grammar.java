@@ -13,6 +13,7 @@ public class Grammar {
 		add("identifier");
 		add("digit");
 		add("->");
+		add("-");
 		add(":");
 		add(".");
 		add(",");
@@ -26,6 +27,7 @@ public class Grammar {
 		add("SBC");
 		add("FAITZ");
 		add("FAITS");
+		add("FAIT");
 		add("FAITS'");
 		add("PARAMETERS");
 		add("PARAMETERS'");
@@ -43,17 +45,18 @@ public class Grammar {
 		
 		put("S", Map.of("faits", "SBC", "#", "epsilon"));
 		put("SBC", Map.of("faits", "faits : FAITZ regles : REGLES"));
-		put("FAITZ", Map.of("regles", "epsilon", "identifier", "FAITS"));
-		put("FAITS", Map.of("identifier", "PREDICAT . FAITS'"));
-		put("FAITS'", Map.of("regles", "epsilon", "identifier", "FAITS"));
-		put("PREDICAT", Map.of("identifier", "identifier ( PARAMETERS )"));
+		put("FAITZ", Map.of("regles", "epsilon", "identifier", "FAITS", "-", "FAITS"));
+		put("FAITS", Map.of("identifier", "FAIT . FAITS'", "-", "FAIT . FAITS'"));
+		put("FAIT", Map.of("identifier", "PREDICAT", "-", "PREDICAT"));
+		put("FAITS'", Map.of("regles", "epsilon", "identifier", "FAITS", "-", "FAITS"));
+		put("PREDICAT", Map.of("identifier", "identifier ( PARAMETERS )", "-", "- identifier ( PARAMETERS )"));
 		put("PARAMETERS", Map.of("identifier", "PARAMETER PARAMETERS'", "digit", "PARAMETER PARAMETERS'"));
 		put("PARAMETERS'", Map.of(")", "epsilon", ",", ", PARAMETERS"));
 		put("PARAMETER", Map.of("identifier", "identifier", "digit", "digit"));
-		put("REGLES", Map.of("identifier", "REGLE . REGLES'"));
-		put("REGLES'", Map.of("#", "epsilon", "identifier", "REGLES"));
-		put("REGLE", Map.of("identifier", "PREDICATS -> PREDICAT"));
-		put("PREDICATS", Map.of("identifier", "PREDICAT PREDICATS'"));
+		put("REGLES", Map.of("identifier", "REGLE . REGLES'", "-", "REGLE . REGLES'"));
+		put("REGLES'", Map.of("#", "epsilon", "identifier", "REGLES", "-", "REGLES"));
+		put("REGLE", Map.of("identifier", "PREDICATS -> PREDICAT", "-", "PREDICATS -> PREDICAT"));
+		put("PREDICATS", Map.of("identifier", "PREDICAT PREDICATS'", "-", "PREDICAT PREDICATS'"));
 		put("PREDICATS'", Map.of(",", ", PREDICATS", "->", "epsilon"));
 		
 	}};

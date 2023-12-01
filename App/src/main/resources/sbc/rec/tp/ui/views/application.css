@@ -4,8 +4,13 @@
 	-fx-border-radius: 8 8 8 8;
 }
 
+#login-window {
+	-fx-background-image: url("../images/foodwp.jpg");
+	-fx-background-size: stretch;
+}
+
 #upper-pane {
-	-fx-background-color: #DEDEDE;
+	-fx-background-color: #190b02;
 	-fx-background-radius: 8 8 0 0;
 	-fx-border-radius: 8 8 0 0;
 }
@@ -25,5 +30,93 @@
 }
 
 #reduceBtn:hover{
-	-fx-background-color: #C2C2C2;
+	-fx-background-color: #ffffff4d;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+.scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+.scroll-pane .content{
+    -fx-background-color: transparent;
+}
+
+#login-pane{
+	-fx-background-color: #a0a0a0d9;
+	-fx-background-radius: 35 35 35 35;
+}
+
+#top-button{
+	-fx-background-radius: 15 15 0 0;
+}
+
+#food-banner{
+	-fx-background-image: url("../images/foodbanner.jpg");
+	-fx-background-size: cover;
+}
+
+#system-answer {
+	-fx-background-color: #E4E4E4;
+	-fx-background-radius: 15 15 15 15;
+}
+
+#side-bar{
+	-fx-background-color: #c79d54cc;
+	-fx-background-radius: 15 15 15 15;
+}
+
+.login-page-button{
+	-fx-background-color: #218380e6;
+	-fx-background-radius: 8 8 8 8;
+}
+
+.login-page-button:hover{
+	-fx-background-color: #218380ff;
+	-fx-background-radius: 8 8 8 8;
+	-fx-cursor: hand ;
+}
+
+.login-input{
+	-fx-background-radius: 15 15 15 15;
+}
+
+.frame{
+	-fx-background-radius: 0 0 8 8;
+	-fx-background-color: transparent;
+}
+
+.frame .viewport{
+	-fx-background-radius: 0 0 8 8;
+	-fx-background-color: transparent;
+}
+
+.frame .content{
+	-fx-background-radius: 0 0 8 8;
+	-fx-background-color: transparent;
+}
+
+#clear-ingredient{
+	-fx-background-color: #FF0000a6;
+	-fx-background-radius: 8 8 8 8;
+}
+
+#clear-ingredient:hover{
+	-fx-background-color: #FF0000f2;
+	-fx-background-radius: 8 8 8 8;
+	-fx-cursor: hand ;
+}
+
+#sign-in-btn{
+	-fx-background-radius: 15 15 15 15;
+}
+
+#user-window{
+	-fx-background-color: #E2E2E2;
+}
+
+#top-image-pane{
+	-fx-rotate: 90;
+	-fx-opacity: 70%;
 }

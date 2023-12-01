@@ -39,18 +39,18 @@ public class ParseTree extends Node<String, ParseTree> {
 
 	public String readLeafs() {
 		if (this.isLeaf()) {
-			return this.getValue();
+			return this.getValue() + " ";
 		}
 		else {
 			String result = "";
 			for (ParseTree child : this.getChildren()) {
-				result += child.readLeafs() + " ";
+				result += child.readLeafs();
 			}
 			return result;
 		}
 	}
 	
-	private boolean hasNextSibling() {
+	public boolean hasNextSibling() {
 		return this.getParent().getChildren().indexOf(this) < this.getParent().getChildrenCount() - 1;
 	}
 	
@@ -59,7 +59,7 @@ public class ParseTree extends Node<String, ParseTree> {
 	}
 	
 	public ParseTree getNextSibling() {
-		if ((this.hasNextSibling()) && (this.hasParent())) {
+		if ((this.hasParent()) && (this.hasNextSibling())) {
 			int siblingIndex = this.getParent().getChildren().indexOf(this) + 1;
 			return this.getParent().getChildren().get(siblingIndex);
 		}

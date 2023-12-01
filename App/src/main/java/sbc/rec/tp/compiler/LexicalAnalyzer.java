@@ -65,7 +65,10 @@ public class LexicalAnalyzer {
 					case 29 -> {
 						switch (currentCharacter) {
 							case '>'-> currentState = 30;
-							default -> currentState = -1;
+							default -> {
+								if (isAlphabetic(currentCharacter)) currentState = 70;
+								else currentState = -1;
+							}
 							
 						}
 					}
@@ -236,6 +239,10 @@ public class LexicalAnalyzer {
 					case 60 -> {
 						i--;
 						tokenType = TokenType.KEYWORD;
+					}
+					case 70 -> {
+						i--;
+						tokenType = TokenType.PONCTUATION;
 					}
 					default -> tokenType = null;	// technically, this case shouldn't be reached
 				}

@@ -4,7 +4,8 @@ import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sbc.rec.tp.ui.views.MainFrame;
+import sbc.rec.tp.ui.views.MainWindow;
+import sbc.rec.tp.ui.views.UserFrame;
 
 public class UIController extends Application {
 
@@ -30,9 +31,9 @@ public class UIController extends Application {
 	}
 
 	private void setMainWindow(Stage stage) {
-		MainFrame mainFrame = MainFrame.getInstance();
-		stage.setScene(mainFrame.getScene());
-		mainFrame.getController().init(stage);
+		MainWindow mainWindow = MainWindow.getInstance();
+		stage.setScene(mainWindow.getScene());
+		mainWindow.getController().init(stage);
 		
 	}
 

@@ -28,6 +28,14 @@ public abstract class Node <ValueType, ChildrenType> {
 		this.children = children;
 	}
 	
+	public ChildrenType getFristChild() {
+		int first = 0;
+		if (hasChildre()) {
+			return getChildren().get(first);
+		}
+		return null;
+	}
+	
 	public int getChildrenCount() {
 		return this.children.size();
 	}

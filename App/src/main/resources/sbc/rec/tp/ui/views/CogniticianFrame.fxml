@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="app-window" fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="1255.0" styleClass="frame" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sbc.rec.tp.ui.controllers.CogniticianFrameController">
+   <children>
+      <Pane id="food-banner" layoutX="25.0" layoutY="24.0" prefHeight="138.0" prefWidth="1226.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Text id="app-title" fill="#c79d54" layoutX="316.0" layoutY="80.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Kitchen Expert (Cognitician)">
+               <font>
+                  <Font name="System Bold" size="44.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <JFXButton fx:id="userLogin" layoutX="1106.0" layoutY="17.0" prefHeight="35.0" prefWidth="146.0" styleClass="login-page-button" text="Go as User" textFill="#e7e7e7" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <graphic>
+            <FontAwesomeIconView fill="#e1ad01" glyphName="USER" size="14" />
+         </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <StackPane id="system-answer" fx:id="container" layoutX="236.0" layoutY="169.0" prefHeight="485.0" prefWidth="979.0">
+         <children>
+            <AnchorPane fx:id="kbTab" prefHeight="468.0" prefWidth="903.0" visible="false">
+               <children>
+                  <Line endX="-100.0" endY="321.79998779296875" layoutX="504.0" layoutY="147.0" startX="-100.0" startY="-14.79998779296875" AnchorPane.leftAnchor="376.0" />
+                  <Text layoutX="384.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Knowledge Base">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="176.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Facts">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="703.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rules">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField layoutX="185.0" layoutY="374.0" prefHeight="32.0" prefWidth="146.0" />
+                  <Text layoutX="70.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="rulesList" editable="true" layoutX="446.0" layoutY="164.0" prefHeight="190.0" prefWidth="503.0" AnchorPane.leftAnchor="424.0" AnchorPane.rightAnchor="47.0">
+                    <columns>
+                      <TableColumn fx:id="idCell" prefWidth="34.39996337890625" text="ID" />
+                      <TableColumn fx:id="premissesCell" prefWidth="329.59991455078125" text="Premisses" />
+                        <TableColumn fx:id="conclusionCell" minWidth="0.7999267578125" prefWidth="101.60009765625" text="Conclusion" />
+                        <TableColumn fx:id="weightCell" prefWidth="45.60009765625" text="Weight" />
+                    </columns>
+                  </TableView>
+                  <Line endX="428.30010986328125" endY="48.399993896484375" layoutX="466.29998779296875" layoutY="60.0" startX="-380.79998779296875" startY="48.399993896484375" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" />
+                  <Text layoutX="130.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Knowledge Base File :">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="kbPath" editable="false" layoutX="319.0" layoutY="65.0" prefHeight="32.0" prefWidth="427.0" promptText="Path.." />
+                  <JFXButton fx:id="addKB" layoutX="781.0" layoutY="65.0" prefHeight="32.0" prefWidth="78.0" styleClass="login-page-button" text="ADD" textFill="#e7e7e7">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#e1ad01" glyphName="PLUS" size="14" />
+                     </graphic>
+                  </JFXButton>
+                  <TableView fx:id="factsList" editable="true" layoutX="44.0" layoutY="164.0" prefHeight="190.0" prefWidth="282.0" AnchorPane.leftAnchor="47.0">
+                     <columns>
+                        <TableColumn fx:id="factIdCell" prefWidth="34.39996337890625" text="ID" />
+                        <TableColumn fx:id="factsCell" prefWidth="247.19998779296873" text="Facts" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="testTab" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <TableView fx:id="testIngerdients" layoutX="549.0" layoutY="87.0" prefHeight="340.0" prefWidth="352.0">
+                     <columns>
+                        <TableColumn fx:id="ingredientColumn" prefWidth="176.79998779296875" text="Ingredient" />
+                        <TableColumn fx:id="quantityColumn" prefWidth="174.4000244140625" text="Quantity" />
+                     </columns>
+                  </TableView>
+                  <Text layoutX="648.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List of Ingredients">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Line endX="93.20001220703125" endY="341.0" layoutX="373.0" layoutY="81.0" startX="93.2000732421875" startY="8.999984741210938" />
+                  <JFXComboBox fx:id="ingredientsList" layoutX="192.0" layoutY="159.0" prefHeight="26.0" prefWidth="178.0" promptText="Select ingredient .." />
+                  <Text layoutX="154.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add an Ingredient">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="78.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredient">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="quantityField" layoutX="193.0" layoutY="233.0" prefHeight="32.0" prefWidth="146.0" />
+                  <Text layoutX="345.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ml/g" />
+                  <Text layoutX="78.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <JFXButton fx:id="addIngredientBtn" layoutX="189.0" layoutY="309.0" prefHeight="35.0" prefWidth="83.0" styleClass="login-page-button" text="ADD" textFill="#e7e7e7">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton id="clear-ingredient" fx:id="clearIngredientBtn" layoutX="189.0" layoutY="356.0" prefHeight="35.0" prefWidth="83.0" text="CLEAR" textFill="#e7e7e7">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+               </children></AnchorPane>
+            <AnchorPane fx:id="chainingTab" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="testResult" layoutX="613.0" layoutY="97.0" prefHeight="340.0" prefWidth="298.0">
+                     <columns>
+                        <TableColumn fx:id="idColumn" prefWidth="59.2000732421875" text="ID" />
+                        <TableColumn fx:id="recipeColumn" prefWidth="237.60001220703123" text="Recipe Name" />
+                     </columns>
+                  </TableView>
+                  <Text layoutX="705.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Result">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Line endX="93.20001220703125" endY="341.0" layoutX="457.0" layoutY="91.0" startX="93.2000732421875" startY="8.999984741210938" />
+                  <JFXComboBox fx:id="recipesList" layoutX="194.0" layoutY="169.0" prefHeight="26.0" prefWidth="178.0" promptText="Select Recipe .." />
+                  <Text layoutX="213.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check a Recipe">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="88.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="88.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Strategy">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <JFXButton fx:id="startSearching" layoutX="199.0" layoutY="330.0" prefHeight="35.0" prefWidth="83.0" styleClass="login-page-button" text="START" textFill="#e7e7e7">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton id="clear-ingredient" fx:id="clearRecipe" layoutX="199.0" layoutY="377.0" prefHeight="35.0" prefWidth="83.0" text="CLEAR" textFill="#e7e7e7">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXComboBox fx:id="strategiesList" layoutX="194.0" layoutY="229.0" prefHeight="26.0" prefWidth="178.0" promptText="Select Strategy .." />
+                  <JFXCheckBox fx:id="noGoal" layoutX="412.0" layoutY="173.0" text="I don't know" />
+                  <JFXCheckBox fx:id="explanation" layoutX="194.0" layoutY="277.0" text="Explain" />
+               </children></AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" visible="false" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" visible="false" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" visible="false" />
+         </children>
+      </StackPane>
+      <VBox id="side-bar" layoutX="28.0" layoutY="239.0" prefHeight="415.0" prefWidth="164.0" AnchorPane.leftAnchor="28.0">
+         <children>
+            <JFXButton fx:id="kbBtn" prefHeight="61.0" prefWidth="165.0" text="Knowledge Base" textFill="#f4f4f4">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton prefHeight="61.0" prefWidth="165.0" text="Meta-Knowledge" textFill="#f4f4f4">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="testBtn" prefHeight="61.0" prefWidth="165.0" text="Test" textFill="#f4f4f4">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="chainingBtn" prefHeight="61.0" prefWidth="165.0" text="Chaining" textFill="#f4f4f4">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton prefHeight="61.0" prefWidth="165.0" text="Detailed Explanation" textFill="#f4f4f4">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <padding>
+                  <Insets right="-1.0" />
+               </padding>
+            </JFXButton>
+            <JFXButton prefHeight="61.0" prefWidth="165.0" text="TMS" textFill="#f4f4f4">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <padding>
+                  <Insets right="-1.0" />
+               </padding>
+            </JFXButton>
+         </children>
+      </VBox>
+      <VBox id="side-bar" alignment="CENTER" layoutX="28.0" layoutY="170.0" prefHeight="61.0" prefWidth="164.0" AnchorPane.leftAnchor="28.0">
+         <children>
+            <Text fill="#f4f4f4" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU" textAlignment="CENTER" wrappingWidth="160.53673934936523">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+         </children>
+         <padding>
+            <Insets bottom="3.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
